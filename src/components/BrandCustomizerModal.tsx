@@ -61,10 +61,10 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto border border-gray-100 flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="bg-[#18181d] text-gray-200 rounded-3xl shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto border border-white/10 flex flex-col">
         {/* Header */}
-        <div className="p-6 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white z-10">
+        <div className="p-6 border-b border-white/10 flex items-center justify-between sticky top-0 bg-[#18181d] z-10">
           <div className="flex items-center gap-3">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-xs"
@@ -73,15 +73,15 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
               <Palette className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-gray-900 tracking-tight">Logo & Brand Color System</h2>
-              <p className="text-xs text-gray-500">
+              <h2 className="text-xl font-bold text-white tracking-tight">Logo & Brand Color System</h2>
+              <p className="text-xs text-gray-400">
                 Synchronize your clinic logo and color palette across the entire application
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-full transition"
+            className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -96,7 +96,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
               style={{
                 backgroundColor: colors.light,
                 borderColor: colors.border,
-                color: colors.deep,
+                color: '#ffffff',
               }}
             >
               <Sparkles className="w-4 h-4 shrink-0" style={{ color: colors.primary }} />
@@ -110,7 +110,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
             style={{ backgroundColor: colors.light, borderColor: colors.border }}
           >
             <div className="flex items-center gap-3.5">
-              <div className="w-14 h-14 rounded-xl bg-white border border-gray-200/80 p-1 flex items-center justify-center shadow-xs overflow-hidden">
+              <div className="w-14 h-14 rounded-xl bg-[#141418] border border-white/15 p-1 flex items-center justify-center shadow-xs overflow-hidden">
                 <img
                   src={currentLogoUrl}
                   alt="Current Clinic Logo"
@@ -123,7 +123,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-gray-900">Functional Rehab Lab</span>
+                  <span className="text-sm font-bold text-white">Functional Rehab Lab</span>
                   <span
                     className="px-2 py-0.5 rounded-full text-[10px] font-bold text-white uppercase tracking-wider"
                     style={{ backgroundColor: colors.primary }}
@@ -131,7 +131,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
                     Active Brand
                   </span>
                 </div>
-                <p className="text-xs text-gray-500 mt-0.5">
+                <p className="text-xs text-gray-400 mt-0.5">
                   {logoFileName ? `Custom logo: ${logoFileName}` : 'Official vector SVG branding active'}
                 </p>
               </div>
@@ -139,7 +139,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
 
             <div className="flex items-center gap-2">
               <div
-                className="w-8 h-8 rounded-lg border border-black/10 shadow-inner"
+                className="w-8 h-8 rounded-lg border border-white/20 shadow-inner"
                 style={{ backgroundColor: colors.primary }}
                 title={`Current primary: ${colors.primary}`}
               />
@@ -148,7 +148,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
 
           {/* Upload Logo Section */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">
               Upload Clinic Logo Image
             </label>
             <div
@@ -161,8 +161,8 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
               onClick={() => fileInputRef.current?.click()}
               className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition-all ${
                 isDragging
-                  ? 'border-blue-500 bg-blue-50/50 scale-[0.99]'
-                  : 'border-gray-200 hover:border-gray-400 bg-gray-50/50 hover:bg-gray-50'
+                  ? 'border-brand-primary bg-brand-primary/10 scale-[0.99]'
+                  : 'border-white/15 hover:border-brand-primary/50 bg-[#141418] hover:bg-[#1a1a20]'
               }`}
             >
               <input
@@ -178,7 +178,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
               />
               <div className="flex flex-col items-center justify-center gap-2">
                 <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center transition"
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center transition border border-brand-primary/20"
                   style={{ backgroundColor: colors.light, color: colors.primary }}
                 >
                   {isProcessing ? (
@@ -188,10 +188,10 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
                   )}
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-gray-900">
+                  <p className="text-sm font-bold text-white">
                     Click to upload or drag & drop logo
                   </p>
-                  <p className="text-xs text-gray-500 mt-0.5">
+                  <p className="text-xs text-gray-400 mt-0.5">
                     Supports PNG, SVG, JPG, WebP. Dominant color is auto-extracted and applied instantly!
                   </p>
                 </div>
@@ -201,7 +201,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
 
           {/* Preset Palettes */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2.5">
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2.5">
               One-Click Logo Color Palettes
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -217,23 +217,23 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
                     }}
                     className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition relative group ${
                       isActive
-                        ? 'border-gray-900 bg-gray-50 ring-2 ring-gray-900/10'
-                        : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50/60'
+                        ? 'border-brand-primary bg-brand-primary/15 ring-2 ring-brand-primary/30'
+                        : 'border-white/10 hover:border-white/20 bg-[#141418] hover:bg-[#1e1e24]'
                     }`}
                   >
                     <div className="flex items-center justify-between w-full mb-2">
                       <div
-                        className="w-6 h-6 rounded-md shadow-xs border border-black/10"
+                        className="w-6 h-6 rounded-md shadow-xs border border-white/20"
                         style={{ backgroundColor: preset.primary }}
                       />
                       {isActive && (
-                        <span className="w-4 h-4 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px]">
+                        <span className="w-4 h-4 rounded-full bg-brand-primary text-white flex items-center justify-center text-[10px]">
                           <Check className="w-2.5 h-2.5" />
                         </span>
                       )}
                     </div>
                     <div>
-                      <span className="block text-xs font-bold text-gray-900 leading-tight">
+                      <span className="block text-xs font-bold text-white leading-tight">
                         {preset.name.split(' ')[0]}
                       </span>
                       <span className="block text-[10px] text-gray-400 font-mono">
@@ -248,7 +248,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
 
           {/* Custom Hex Color Picker */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">
               Exact Hex Color Code
             </label>
             <div className="flex items-center gap-3">
@@ -260,7 +260,7 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
                     setBrandColor(e.target.value);
                     setCustomHexInput(e.target.value);
                   }}
-                  className="w-10 h-10 rounded-xl cursor-pointer border border-gray-200 p-1 bg-white"
+                  className="w-10 h-10 rounded-xl cursor-pointer border border-white/20 p-1 bg-[#141418]"
                   title="Pick exact color"
                 />
               </div>
@@ -269,14 +269,14 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
                   type="text"
                   value={customHexInput}
                   onChange={handleCustomHexChange}
-                  placeholder="#847D6A"
+                  placeholder="#FF5500"
                   maxLength={7}
-                  className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm font-mono text-gray-900 focus:outline-hidden focus:bg-white focus:border-gray-900 transition"
+                  className="w-full px-3.5 py-2.5 bg-[#141418] border border-white/15 rounded-xl text-sm font-mono text-white focus:outline-hidden focus:border-brand-primary transition"
                 />
               </div>
               <button
                 onClick={resetToDefaultBrand}
-                className="px-3 py-2.5 text-xs font-semibold text-gray-600 hover:text-gray-900 border border-gray-200 hover:bg-gray-50 rounded-xl transition flex items-center gap-1.5 shrink-0"
+                className="px-3 py-2.5 text-xs font-semibold text-gray-300 hover:text-white border border-white/15 bg-[#141418] hover:bg-white/5 rounded-xl transition flex items-center gap-1.5 shrink-0"
                 title="Reset to official Functional Rehab Lab theme"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
@@ -287,13 +287,13 @@ export const BrandCustomizerModal: React.FC<BrandCustomizerModalProps> = ({ isOp
         </div>
 
         {/* Footer */}
-        <div className="p-4 sm:p-6 border-t border-gray-100 flex items-center justify-between bg-gray-50/70 rounded-b-3xl">
-          <span className="text-xs text-gray-500">
+        <div className="p-4 sm:p-6 border-t border-white/10 flex items-center justify-between bg-[#141418] rounded-b-3xl">
+          <span className="text-xs text-gray-400">
             Changes save automatically to browser storage
           </span>
           <button
             onClick={onClose}
-            className="px-5 py-2.5 rounded-xl text-sm font-bold text-white shadow-xs transition hover:opacity-95"
+            className="px-5 py-2.5 rounded-xl text-sm font-bold text-white shadow-lg shadow-brand-primary/25 transition hover:opacity-95"
             style={{ backgroundColor: colors.primary }}
           >
             Apply & View Website

@@ -16,13 +16,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
   };
 
   return (
-    <footer className="bg-gray-950 text-gray-400 text-xs pt-16 pb-24 sm:pb-16 border-t border-gray-900">
+    <footer className="bg-[#0a0a0c] text-gray-400 text-xs pt-16 pb-24 sm:pb-16 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Col 1: Brand & Clinic Identity */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-white p-1.5 flex items-center justify-center border border-gray-800 shadow-xs overflow-hidden">
+              <div className="w-12 h-12 rounded-2xl bg-[#18181d] p-1 flex items-center justify-center border border-white/10 shadow-xs overflow-hidden">
                 <img
                   src={currentLogoUrl}
                   alt="Functional Rehab Lab Logo"
@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
                 <span className="text-base font-bold text-white block">
                   Functional Rehab Lab
                 </span>
-                <span className="text-[11px] text-gray-500 uppercase tracking-wider block">
+                <span className="text-[11px] text-gray-400 uppercase tracking-wider block">
                   Physiotherapy &amp; Rehabilitation Centre
                 </span>
               </div>
@@ -49,9 +49,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
             <div className="flex flex-wrap items-center gap-2.5 pt-2">
               <a
                 href={CLINIC_INFO.telUrl}
-                className="px-3 py-2 rounded-lg bg-gray-900 text-gray-200 hover:text-white border border-gray-800 transition flex items-center gap-1.5"
+                className="px-3 py-2 rounded-xl bg-[#16161b] text-gray-200 hover:text-white border border-white/10 transition flex items-center gap-1.5"
               >
-                <Phone className="w-3.5 h-3.5" style={{ color: colors.accent }} />
+                <Phone className="w-3.5 h-3.5 text-brand-primary" />
                 <span>{CLINIC_INFO.phoneDisplay}</span>
               </a>
 
@@ -59,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
                 href={`https://wa.me/${CLINIC_INFO.whatsappRawNumber}?text=${encodeURIComponent('Hello Functional Rehab Lab, I have an enquiry.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-2 rounded-lg bg-[#25D366]/15 text-[#25D366] hover:bg-[#25D366]/25 transition flex items-center gap-1.5"
+                className="px-3 py-2 rounded-xl bg-[#25D366]/15 text-[#25D366] hover:bg-[#25D366]/25 border border-[#25D366]/30 transition flex items-center gap-1.5"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
@@ -67,10 +67,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
 
               <button
                 onClick={() => setIsCustomizerOpen(true)}
-                className="px-3 py-2 rounded-lg bg-gray-900 text-gray-300 hover:text-white border border-gray-800 transition flex items-center gap-1.5"
+                className="px-3 py-2 rounded-xl bg-[#16161b] text-gray-300 hover:text-white border border-white/10 transition flex items-center gap-1.5"
                 title="Change Brand Theme & Logo"
               >
-                <Palette className="w-3.5 h-3.5" style={{ color: colors.primary }} />
+                <Palette className="w-3.5 h-3.5 text-brand-primary" />
                 <span>Logo &amp; Colors</span>
               </button>
             </div>
@@ -85,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               <li>
                 <button
                   onClick={() => onNavigate('home')}
-                  className="hover:text-white transition"
+                  className="hover:text-brand-primary transition"
                 >
                   Home
                 </button>
@@ -93,7 +93,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               <li>
                 <button
                   onClick={() => onNavigate('about')}
-                  className="hover:text-white transition"
+                  className="hover:text-brand-primary transition"
                 >
                   About Our Practice
                 </button>
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               <li>
                 <button
                   onClick={() => onNavigate('services')}
-                  className="hover:text-white transition"
+                  className="hover:text-brand-primary transition"
                 >
                   Physiotherapy Services
                 </button>
@@ -109,7 +109,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               <li>
                 <button
                   onClick={() => onNavigate('book')}
-                  className="hover:text-white transition"
+                  className="hover:text-brand-primary transition"
                 >
                   Book Appointment via WhatsApp
                 </button>
@@ -117,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               <li>
                 <button
                   onClick={() => onNavigate('dashboard')}
-                  className="hover:text-white transition"
+                  className="hover:text-brand-primary transition"
                 >
                   Patient Portal Dashboard
                 </button>
@@ -125,7 +125,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               <li>
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="hover:text-white transition"
+                  className="hover:text-brand-primary transition"
                 >
                   Clinic Location &amp; Directions
                 </button>
@@ -138,8 +138,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
               Clinic Location
             </h4>
-            <div className="flex items-start gap-2.5 text-gray-400 leading-relaxed">
-              <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: colors.accent }} />
+            <div className="flex items-start gap-2.5 text-gray-300 leading-relaxed">
+              <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-brand-primary" />
               <span>
                 Near KIMS Rd, Oruvathilkotta,<br />
                 Anayara, Thiruvananthapuram,<br />
@@ -152,8 +152,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
                 href={CLINIC_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-medium transition hover:underline"
-                style={{ color: colors.accent }}
+                className="inline-flex items-center gap-1.5 font-medium text-brand-primary hover:text-brand-hover transition hover:underline"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>Open in Google Maps &rarr;</span>
@@ -163,12 +162,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
         </div>
 
         {/* Disclaimer & Bottom Bar */}
-        <div className="pt-8 border-t border-gray-900 space-y-4">
+        <div className="pt-8 border-t border-white/10 space-y-4">
           <p className="text-[11px] text-gray-500 leading-relaxed">
             <strong>Medical Disclaimer:</strong> The content provided on this website is for informational and educational purposes only and should not be construed as clinical diagnosis or replacement for individualized medical evaluation. Always consult a certified physiotherapist or licensed healthcare practitioner regarding any physical discomfort or medical condition.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-gray-900/60 text-[11px] text-gray-500">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10 text-[11px] text-gray-500">
             <p>
               &copy; {new Date().getFullYear()} Functional Rehab Lab. All rights reserved.
             </p>
@@ -182,7 +181,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               </button>
               <button
                 onClick={scrollToTop}
-                className="p-2 rounded-lg bg-gray-900 text-gray-400 hover:text-white transition flex items-center gap-1"
+                className="p-2 rounded-xl bg-[#16161b] text-gray-400 hover:text-white border border-white/10 transition flex items-center gap-1"
                 aria-label="Scroll to top of page"
               >
                 <ArrowUp className="w-3.5 h-3.5" />

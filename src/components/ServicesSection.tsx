@@ -50,24 +50,24 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   };
 
   return (
-    <section id="services" className="py-16 sm:py-20 bg-[#fafbfc] border-t border-gray-100 scroll-mt-20">
+    <section id="services" className="py-16 sm:py-20 bg-[#121216] border-t border-white/10 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-primary/10 text-brand-primary text-xs font-semibold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-primary/15 text-brand-primary border border-brand-primary/30 text-xs font-semibold uppercase tracking-wider mb-3">
               Clinical Specializations
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Physiotherapy &amp; Rehabilitation Services
             </h2>
-            <p className="mt-3 text-base text-gray-600 leading-relaxed">
+            <p className="mt-3 text-base text-gray-300 leading-relaxed">
               Targeted clinical programs designed to manage discomfort, re-establish joint biomechanics, and promote progressive functional strength.
             </p>
           </div>
 
           {/* Configurable Note Notice */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-gray-200 text-xs text-gray-500 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#18181d] border border-white/15 text-xs text-gray-400 shadow-2xs">
             <Info className="w-4 h-4 text-brand-primary shrink-0" />
             <span>Clinic services are fully configurable in code</span>
           </div>
@@ -81,8 +81,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition ${
                 selectedCategory === cat
-                  ? 'bg-brand-primary text-white shadow-xs'
-                  : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
+                  ? 'bg-brand-primary text-white shadow-lg shadow-brand-primary/25'
+                  : 'bg-[#18181d] text-gray-300 border border-white/10 hover:border-brand-primary/40'
               }`}
             >
               {cat}
@@ -99,38 +99,38 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             return (
               <div
                 key={service.id}
-                className="flex flex-col justify-between rounded-2xl bg-white p-6 border border-gray-200/80 shadow-2xs hover:border-brand-primary/40 hover:shadow-xs transition duration-200"
+                className="flex flex-col justify-between rounded-2xl bg-[#18181d] p-6 border border-white/10 shadow-xs hover:border-brand-primary/50 hover:bg-[#1c1c22] transition duration-200"
               >
                 <div>
                   <div className="flex items-center justify-between gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center">
+                    <div className="w-11 h-11 rounded-xl bg-brand-primary/15 text-brand-primary flex items-center justify-center border border-brand-primary/20">
                       {renderIcon(service.iconName)}
                     </div>
-                    <span className="text-[11px] font-semibold text-brand-primary bg-brand-primary/5 px-2.5 py-1 rounded-full border border-brand-primary/15">
+                    <span className="text-[11px] font-semibold text-brand-primary bg-brand-primary/15 px-2.5 py-1 rounded-full border border-brand-primary/30">
                       {service.category}
                     </span>
                   </div>
 
-                  <h3 className="mt-5 text-lg font-bold text-gray-900 leading-snug">
+                  <h3 className="mt-5 text-lg font-bold text-white leading-snug">
                     {service.title}
                   </h3>
 
-                  <p className="mt-2 text-xs text-gray-600 leading-relaxed">
+                  <p className="mt-2 text-xs text-gray-400 leading-relaxed">
                     {service.description}
                   </p>
 
                   {/* Suitable Conditions Chips */}
-                  <div className="mt-4 pt-4 border-t border-gray-100">
-                    <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-2">
+                  <div className="mt-4 pt-4 border-t border-white/10">
+                    <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">
                       Common Focus Areas:
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {service.suitableFor.map((item, idx) => (
                         <span
                           key={idx}
-                          className="inline-flex items-center gap-1 text-[11px] text-gray-600 bg-gray-50 px-2 py-0.5 rounded-md border border-gray-150"
+                          className="inline-flex items-center gap-1 text-[11px] text-gray-300 bg-[#222228] px-2 py-0.5 rounded-md border border-white/10"
                         >
-                          <CheckCircle className="w-3 h-3 text-brand-primary/70 shrink-0" />
+                          <CheckCircle className="w-3 h-3 text-brand-primary shrink-0" />
                           <span>{item}</span>
                         </span>
                       ))}
@@ -139,12 +139,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </div>
 
                 {/* CTAs: Enquire on WhatsApp & Book Slot */}
-                <div className="mt-6 pt-4 border-t border-gray-100 grid grid-cols-2 gap-2">
+                <div className="mt-6 pt-4 border-t border-white/10 grid grid-cols-2 gap-2">
                   <a
                     href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#25D366]/10 text-[#128C7E] hover:bg-[#25D366]/20 font-bold text-xs transition"
+                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#25D366]/15 text-[#25D366] hover:bg-[#25D366]/25 border border-[#25D366]/30 font-bold text-xs transition"
                     title={`Enquire about ${service.title} via WhatsApp`}
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
@@ -153,7 +153,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
                   <button
                     onClick={() => onSelectServiceForBooking(service.id)}
-                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-brand-primary text-white hover:bg-brand-hover font-bold text-xs transition"
+                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-brand-primary text-white hover:bg-brand-hover font-bold text-xs transition shadow-lg shadow-brand-primary/20"
                   >
                     <Calendar className="w-3.5 h-3.5" />
                     <span>Book Slot</span>

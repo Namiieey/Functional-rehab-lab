@@ -43,8 +43,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
     <header
       className={`sticky top-0 z-40 w-full transition-all duration-200 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-xs border-b border-gray-100'
-          : 'bg-white border-b border-gray-100/80'
+          ? 'bg-[#0d0d10]/95 backdrop-blur-md shadow-lg shadow-black/40 border-b border-white/10'
+          : 'bg-[#0d0d10] border-b border-white/10'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,8 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             aria-label="Functional Rehab Lab - Back to Home"
           >
             <div
-              className="w-11 h-11 rounded-2xl flex items-center justify-center p-1.5 shadow-xs border transition group-hover:scale-105 overflow-hidden bg-white"
-              style={{ borderColor: colors.border }}
+              className="w-11 h-11 rounded-2xl flex items-center justify-center p-1 shadow-xs border transition group-hover:scale-105 overflow-hidden bg-[#16161b] border-white/15"
             >
               <img
                 src={currentLogoUrl}
@@ -69,10 +68,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
               />
             </div>
             <div>
-              <span className="block text-base sm:text-lg font-bold text-gray-900 tracking-tight leading-tight group-hover:text-brand-primary transition">
+              <span className="block text-base sm:text-lg font-bold text-white tracking-tight leading-tight group-hover:text-brand-primary transition">
                 Functional Rehab Lab
               </span>
-              <span className="block text-[11px] font-medium text-gray-500 uppercase tracking-wider">
+              <span className="block text-[11px] font-medium text-gray-400 uppercase tracking-wider">
                 Anayara, Thiruvananthapuram
               </span>
             </div>
@@ -88,8 +87,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                   onClick={() => handleLinkClick(link.id)}
                   className={`px-3 py-2 rounded-xl text-xs font-semibold tracking-wide transition ${
                     isActive
-                      ? 'bg-brand-primary/10 text-brand-primary'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'bg-brand-primary/20 text-brand-primary shadow-xs'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {link.label}
@@ -104,19 +103,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             <button
               onClick={() => setIsCustomizerOpen(true)}
               id="navbar-brand-theme-btn"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition hover:opacity-90 active:scale-[0.98]"
-              style={{
-                backgroundColor: colors.light,
-                borderColor: colors.border,
-                color: colors.deep,
-              }}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition hover:opacity-90 active:scale-[0.98] bg-[#18181d] border-white/15 text-gray-200"
               title="Change Clinic Logo & UI Colors"
             >
               <span
-                className="w-2.5 h-2.5 rounded-full shadow-inner ring-1 ring-black/10"
+                className="w-2.5 h-2.5 rounded-full shadow-inner ring-1 ring-white/20"
                 style={{ backgroundColor: colors.primary }}
               />
-              <Palette className="w-3.5 h-3.5" style={{ color: colors.primary }} />
+              <Palette className="w-3.5 h-3.5 text-brand-primary" />
               <span className="hidden xl:inline text-[11px]">Logo & Colors</span>
             </button>
 
@@ -127,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             <a
               href={CLINIC_INFO.telUrl}
               id="navbar-call-btn"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700 hover:text-brand-primary hover:bg-gray-50 transition border border-gray-200 active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-gray-200 hover:text-brand-primary hover:bg-white/5 transition border border-white/15 active:scale-[0.98]"
               title="Direct Clinic Phone"
             >
               <Phone className="w-3.5 h-3.5 text-brand-primary" />
@@ -140,20 +134,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
               <div className="relative flex items-center gap-2">
                 <button
                   onClick={() => handleLinkClick('dashboard')}
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 text-gray-800 text-xs font-semibold hover:bg-gray-200 transition"
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#18181d] border border-white/15 text-gray-200 text-xs font-semibold hover:bg-white/5 transition"
                   title="Open Patient Dashboard"
                 >
                   <User className="w-3.5 h-3.5 text-brand-primary" />
                   <span className="max-w-[100px] truncate">{currentUser.fullName.split(' ')[0]}</span>
                   {isDemoMode && (
-                    <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full">
+                    <span className="text-[10px] bg-amber-500/20 text-amber-300 font-bold px-1.5 py-0.5 rounded-full border border-amber-500/30">
                       Demo
                     </span>
                   )}
                 </button>
                 <button
                   onClick={logout}
-                  className="p-2 rounded-xl text-gray-400 hover:text-red-600 hover:bg-red-50 transition"
+                  className="p-2 rounded-xl text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition"
                   title="Log out"
                   aria-label="Log out"
                 >
@@ -164,7 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
               <button
                 onClick={() => onOpenAuth('login')}
                 id="navbar-login-btn"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition border border-gray-200"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-gray-200 hover:text-white hover:bg-white/5 transition border border-white/15"
               >
                 <User className="w-3.5 h-3.5 text-brand-primary" />
                 <span>Login</span>
@@ -175,8 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             <button
               onClick={() => handleLinkClick('book')}
               id="navbar-book-btn"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white text-xs font-bold transition shadow-xs active:scale-[0.98] hover:opacity-95"
-              style={{ backgroundColor: colors.primary }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white text-xs font-bold transition shadow-lg shadow-brand-primary/25 active:scale-[0.98] bg-brand-primary hover:bg-brand-hover"
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>Book Appointment</span>
@@ -187,22 +180,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
           <div className="flex items-center gap-2 sm:hidden">
             <button
               onClick={() => setIsCustomizerOpen(true)}
-              className="p-2 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 transition"
+              className="p-2 rounded-xl border border-white/15 bg-[#18181d] text-gray-300 transition"
               title="Logo & Colors"
               aria-label="Logo & Colors"
             >
-              <Palette className="w-4 h-4" style={{ color: colors.primary }} />
+              <Palette className="w-4 h-4 text-brand-primary" />
             </button>
             <a
               href={CLINIC_INFO.telUrl}
-              className="p-2.5 rounded-xl bg-gray-100 text-gray-800 hover:text-brand-primary transition"
+              className="p-2.5 rounded-xl bg-[#18181d] border border-white/15 text-gray-200 hover:text-brand-primary transition"
               aria-label="Call Functional Rehab Lab"
             >
               <Phone className="w-4 h-4 text-brand-primary" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl text-gray-700 hover:bg-gray-100 transition"
+              className="p-2.5 rounded-xl text-gray-200 hover:bg-white/10 transition"
               aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -213,7 +206,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="sm:hidden border-b border-gray-100 bg-white px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-2 duration-150">
+        <div className="sm:hidden border-b border-white/10 bg-[#121216] px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-2 duration-150 text-white">
           <div className="space-y-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
@@ -223,8 +216,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                   onClick={() => handleLinkClick(link.id)}
                   className={`w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-semibold text-left transition ${
                     isActive
-                      ? 'bg-brand-primary/10 text-brand-primary'
-                      : 'text-gray-700 hover:bg-gray-50'
+                      ? 'bg-brand-primary/20 text-brand-primary'
+                      : 'text-gray-300 hover:bg-white/5 hover:text-white'
                   }`}
                 >
                   <span>{link.label}</span>
@@ -234,33 +227,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             })}
           </div>
 
-          <div className="pt-3 border-t border-gray-100 space-y-2.5">
+          <div className="pt-3 border-t border-white/10 space-y-2.5">
             {/* Brand Color Theme Button in Mobile */}
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 setIsCustomizerOpen(true);
               }}
-              className="w-full py-2.5 rounded-xl border border-gray-200 text-gray-800 text-xs font-semibold flex items-center justify-center gap-2 bg-gray-50"
+              className="w-full py-2.5 rounded-xl border border-white/15 text-gray-200 text-xs font-semibold flex items-center justify-center gap-2 bg-[#18181d]"
             >
-              <Palette className="w-4 h-4" style={{ color: colors.primary }} />
+              <Palette className="w-4 h-4 text-brand-primary" />
               <span>Change Logo & Brand Palette</span>
             </button>
 
             {/* Install button in mobile menu */}
             <div className="flex justify-between items-center py-1">
-              <span className="text-xs text-gray-500 font-medium">Progressive Web App:</span>
+              <span className="text-xs text-gray-400 font-medium">Progressive Web App:</span>
               <PWAInstallButton variant="navbar" />
             </div>
 
             {/* Auth in Mobile */}
             {isAuthenticated && currentUser ? (
-              <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#18181d] border border-white/10">
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4 text-brand-primary" />
                   <div>
-                    <p className="text-xs font-bold text-gray-900">{currentUser.fullName}</p>
-                    <p className="text-[11px] text-gray-500">{currentUser.phone}</p>
+                    <p className="text-xs font-bold text-white">{currentUser.fullName}</p>
+                    <p className="text-[11px] text-gray-400">{currentUser.phone}</p>
                   </div>
                 </div>
                 <button
@@ -268,7 +261,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                     logout();
                     setMobileMenuOpen(false);
                   }}
-                  className="px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition"
+                  className="px-2.5 py-1 text-xs font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition"
                 >
                   Logout
                 </button>
@@ -279,7 +272,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                   setMobileMenuOpen(false);
                   onOpenAuth('login');
                 }}
-                className="w-full py-2.5 rounded-xl border border-gray-200 text-gray-800 text-xs font-semibold flex items-center justify-center gap-2"
+                className="w-full py-2.5 rounded-xl border border-white/15 text-gray-200 text-xs font-semibold flex items-center justify-center gap-2 bg-[#18181d]"
               >
                 <User className="w-4 h-4 text-brand-primary" />
                 <span>Patient Login / Sign Up</span>
@@ -300,8 +293,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             {/* Book Appointment on page */}
             <button
               onClick={() => handleLinkClick('book')}
-              className="w-full py-3 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs"
-              style={{ backgroundColor: colors.primary }}
+              className="w-full py-3 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/25 bg-brand-primary hover:bg-brand-hover"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Appointment Form</span>

@@ -70,7 +70,7 @@ export function MainAppContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col selection:bg-brand-primary/20 selection:text-brand-primary">
+    <div className="min-h-screen bg-[#0d0d10] text-gray-100 flex flex-col selection:bg-brand-primary/30 selection:text-white">
       {/* Offline Alert */}
       <OfflineIndicator />
 

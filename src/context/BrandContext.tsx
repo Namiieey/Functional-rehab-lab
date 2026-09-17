@@ -9,10 +9,16 @@ export interface BrandPreset {
 
 export const BRAND_PRESETS: BrandPreset[] = [
   {
+    id: 'mat-black-orange',
+    name: 'Blaze Orange & Matte Black',
+    primary: '#FF5500',
+    description: 'Official athletic rehabilitation & biomechanics matte black aesthetic',
+  },
+  {
     id: 'functional-olive',
     name: 'Functional Lab Olive & Charcoal',
     primary: '#847D6A',
-    description: 'Official clinic brand palette — refined earthy olive taupe with rich charcoal',
+    description: 'Refined earthy olive taupe with rich charcoal',
   },
   {
     id: 'royal-blue',
@@ -80,9 +86,9 @@ interface BrandContextType {
   setIsCustomizerOpen: (open: boolean) => void;
 }
 
-const STORAGE_KEY = 'frl_brand_settings_v1';
-const DEFAULT_PRIMARY = '#847D6A';
-const DEFAULT_LOGO_URL = '/logo.svg';
+const STORAGE_KEY = 'frl_brand_settings_v2';
+const DEFAULT_PRIMARY = '#FF5500';
+const DEFAULT_LOGO_URL = '/logo-transparent.png';
 
 // Color conversion helpers
 function hexToRgb(hex: string): { r: number; g: number; b: number } {
@@ -162,16 +168,16 @@ export function generateBrandPalette(primaryHex: string): BrandColors {
   const { r, g, b } = hexToRgb(primaryHex);
   const { h, s, l } = rgbToHsl(r, g, b);
 
-  // Hover: slightly darker
-  const hoverRgb = hslToRgb(h, Math.min(1, s * 1.05), Math.max(0.12, l - 0.1));
-  // Deep tone for headings/dark accents: deep charcoal tinted with brand hue
-  const deepRgb = hslToRgb(h, Math.min(0.25, s), 0.13);
-  // Light tint for background cards
-  const lightRgb = hslToRgb(h, Math.min(0.45, Math.max(0.15, s * 0.5)), 0.97);
+  // Hover: punchy deeper tone
+  const hoverRgb = hslToRgb(h, Math.min(1, s * 1.05), Math.max(0.15, l - 0.08));
+  // Deep tone for background/surfaces: deep matte obsidian/black tinted with subtle hue
+  const deepRgb = hslToRgb(h, Math.min(0.2, s), 0.06);
+  // Light / subtle tinted container for dark theme
+  const lightRgb = hslToRgb(h, Math.min(0.6, s), 0.14);
   // Border soft tint
-  const borderRgb = hslToRgb(h, Math.min(0.4, Math.max(0.15, s * 0.4)), 0.88);
+  const borderRgb = hslToRgb(h, Math.min(0.4, s), 0.22);
   // Accent: vibrant energetic tone
-  const accentRgb = hslToRgb(h, Math.min(1, s + 0.15), Math.min(0.65, Math.max(0.45, l + 0.08)));
+  const accentRgb = hslToRgb(h, Math.min(1, s + 0.15), Math.min(0.65, Math.max(0.45, l + 0.06)));
 
   return {
     primary: primaryHex,
@@ -180,7 +186,7 @@ export function generateBrandPalette(primaryHex: string): BrandColors {
     light: rgbToHex(lightRgb.r, lightRgb.g, lightRgb.b),
     border: rgbToHex(borderRgb.r, borderRgb.g, borderRgb.b),
     accent: rgbToHex(accentRgb.r, accentRgb.g, accentRgb.b),
-    ring: `rgba(${r}, ${g}, ${b}, 0.35)`,
+    ring: `rgba(${r}, ${g}, ${b}, 0.4)`,
   };
 }
 
@@ -243,7 +249,7 @@ export const BrandProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [colors, setColors] = useState<BrandColors>(() => generateBrandPalette(DEFAULT_PRIMARY));
   const [currentLogoUrl, setCurrentLogoUrl] = useState<string>(DEFAULT_LOGO_URL);
   const [logoFileName, setLogoFileName] = useState<string | null>(null);
-  const [activePresetId, setActivePresetId] = useState<string | null>('functional-olive');
+  const [activePresetId, setActivePresetId] = useState<string | null>('mat-black-orange');
   const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
 
   // Apply colors to root CSS variables
@@ -361,7 +367,7 @@ export const BrandProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setColors(palette);
     setCurrentLogoUrl(DEFAULT_LOGO_URL);
     setLogoFileName(null);
-    setActivePresetId('functional-olive');
+    setActivePresetId('mat-black-orange');
     applyColorsToCss(palette);
 
     try {

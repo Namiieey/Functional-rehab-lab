@@ -139,24 +139,24 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 overflow-y-auto">
-      <div className="relative w-full max-w-md my-8 rounded-3xl bg-white p-6 sm:p-8 shadow-2xl border border-gray-100 animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-xs p-4 overflow-y-auto">
+      <div className="relative w-full max-w-md my-8 rounded-3xl bg-[#18181d] p-6 sm:p-8 shadow-2xl border border-white/10 animate-in fade-in zoom-in-95 duration-200 text-gray-300">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+        <div className="flex items-center justify-between pb-4 border-b border-white/10">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-brand-primary text-white flex items-center justify-center font-bold text-sm">
+            <div className="w-9 h-9 rounded-xl bg-brand-primary text-white flex items-center justify-center font-bold text-sm shadow-md shadow-brand-primary/25">
               FRL
             </div>
             <div>
-              <h2 className="text-lg font-bold text-gray-900 tracking-tight">
+              <h2 className="text-lg font-bold text-white tracking-tight">
                 {mode === 'login' ? 'Patient Portal Login' : 'Create Patient Account'}
               </h2>
-              <p className="text-xs text-gray-500">Functional Rehab Lab</p>
+              <p className="text-xs text-gray-400">Functional Rehab Lab</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition"
+            className="p-1.5 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition"
             aria-label="Close authentication modal"
           >
             <X className="w-5 h-5" />
@@ -164,7 +164,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         </div>
 
         {/* Mode Selector Tabs */}
-        <div className="mt-5 grid grid-cols-2 p-1 bg-gray-100/80 rounded-xl">
+        <div className="mt-5 grid grid-cols-2 p-1 bg-[#131317] rounded-xl border border-white/10">
           <button
             type="button"
             onClick={() => {
@@ -173,8 +173,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             }}
             className={`py-2 text-xs font-semibold rounded-lg transition ${
               mode === 'login'
-                ? 'bg-white text-brand-primary shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-brand-primary text-white shadow-xs'
+                : 'text-gray-400 hover:text-white'
             }`}
           >
             Log In
@@ -187,8 +187,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             }}
             className={`py-2 text-xs font-semibold rounded-lg transition ${
               mode === 'signup'
-                ? 'bg-white text-brand-primary shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-brand-primary text-white shadow-xs'
+                : 'text-gray-400 hover:text-white'
             }`}
           >
             Create Account
@@ -197,16 +197,16 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Error message */}
         {error && (
-          <div className="mt-4 flex items-start gap-2.5 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
-            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+          <div className="mt-4 flex items-start gap-2.5 p-3 rounded-xl bg-red-950/50 border border-red-500/30 text-red-200 text-xs">
+            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
             <span>{error}</span>
           </div>
         )}
 
         {/* Success message */}
         {successMessage && (
-          <div className="mt-4 flex items-start gap-2.5 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs">
-            <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+          <div className="mt-4 flex items-start gap-2.5 p-3 rounded-xl bg-emerald-950/50 border border-emerald-500/30 text-emerald-200 text-xs">
+            <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5 text-emerald-400" />
             <span>{successMessage}</span>
           </div>
         )}
@@ -215,50 +215,50 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         <form onSubmit={handleSubmit} className="mt-5 space-y-4">
           {mode === 'signup' && (
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">Full Legal / Preferred Name</label>
+              <label className="block text-xs font-semibold text-gray-300 mb-1">Full Legal / Preferred Name</label>
               <div className="relative">
-                <User className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <User className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="e.g. Rahul Krishnan"
-                  className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
+                  className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl bg-[#141418] border border-white/15 text-white placeholder-gray-500 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                 />
               </div>
             </div>
           )}
 
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-1">
+            <label className="block text-xs font-semibold text-gray-300 mb-1">
               {mode === 'signup' ? 'Email Address' : 'Email Address or Phone'}
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Mail className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type={mode === 'signup' ? 'email' : 'text'}
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={mode === 'signup' ? 'name@example.com' : 'name@example.com or phone'}
-                className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
+                className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl bg-[#141418] border border-white/15 text-white placeholder-gray-500 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
               />
             </div>
           </div>
 
           {mode === 'signup' && (
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">Phone Number (WhatsApp capable)</label>
+              <label className="block text-xs font-semibold text-gray-300 mb-1">Phone Number (WhatsApp capable)</label>
               <div className="relative">
-                <Phone className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Phone className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="tel"
                   required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+91 98470 12345"
-                  className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
+                  className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl bg-[#141418] border border-white/15 text-white placeholder-gray-500 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                 />
               </div>
             </div>
@@ -266,7 +266,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
           <div>
             <div className="flex items-center justify-between mb-1">
-              <label className="block text-xs font-semibold text-gray-700">Password</label>
+              <label className="block text-xs font-semibold text-gray-300">Password</label>
               {mode === 'login' && (
                 <button
                   type="button"
@@ -278,19 +278,19 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               )}
             </div>
             <div className="relative">
-              <Lock className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Lock className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-10 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
+                className="w-full pl-10 pr-10 py-2.5 text-sm rounded-xl bg-[#141418] border border-white/15 text-white placeholder-gray-500 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white p-1"
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -305,12 +305,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     <div
                       key={step}
                       className={`h-1.5 flex-1 rounded-full ${
-                        step < strengthScore ? strengthColors[strengthScore] : 'bg-gray-200'
+                        step < strengthScore ? strengthColors[strengthScore] : 'bg-gray-800'
                       }`}
                     />
                   ))}
                 </div>
-                <div className="flex justify-between items-center text-[11px] text-gray-500">
+                <div className="flex justify-between items-center text-[11px] text-gray-400">
                   <span>Strength: {strengthLabels[strengthScore]}</span>
                   <span>Minimum 8 characters</span>
                 </div>
@@ -320,41 +320,41 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
           {mode === 'signup' && (
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">Confirm Password</label>
+              <label className="block text-xs font-semibold text-gray-300 mb-1">Confirm Password</label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
+                  className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl bg-[#141418] border border-white/15 text-white placeholder-gray-500 focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                 />
               </div>
             </div>
           )}
 
           {mode === 'login' ? (
-            <div className="flex items-center justify-between text-xs text-gray-600">
+            <div className="flex items-center justify-between text-xs text-gray-400">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-4 h-4 rounded-sm text-brand-primary focus:ring-brand-primary"
+                  className="w-4 h-4 rounded-sm text-brand-primary focus:ring-brand-primary bg-[#141418] border-white/20"
                 />
                 <span>Remember me</span>
               </label>
             </div>
           ) : (
-            <div className="flex items-start gap-2.5 text-xs text-gray-600">
+            <div className="flex items-start gap-2.5 text-xs text-gray-400">
               <input
                 type="checkbox"
                 id="agree-terms"
                 checked={agreedTerms}
                 onChange={(e) => setAgreedTerms(e.target.checked)}
-                className="w-4 h-4 rounded-sm text-brand-primary focus:ring-brand-primary mt-0.5 shrink-0"
+                className="w-4 h-4 rounded-sm text-brand-primary focus:ring-brand-primary mt-0.5 shrink-0 bg-[#141418] border-white/20"
               />
               <label htmlFor="agree-terms" className="leading-snug">
                 I agree to the{' '}
@@ -373,7 +373,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 rounded-xl bg-brand-primary text-white font-semibold text-sm hover:bg-brand-hover transition active:scale-[0.99] disabled:opacity-60 flex items-center justify-center gap-2 shadow-sm"
+            className="w-full py-3 px-4 rounded-xl bg-brand-primary text-white font-semibold text-sm hover:bg-brand-hover transition active:scale-[0.99] disabled:opacity-60 flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/25"
           >
             {loading ? (
               <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -383,15 +383,15 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         </form>
 
         {/* Demo Mode Instant Toggle Option */}
-        <div className="mt-6 pt-4 border-t border-gray-100 flex flex-col items-center text-center">
-          <p className="text-xs text-gray-500 mb-2">Want to evaluate sample patient records?</p>
+        <div className="mt-6 pt-4 border-t border-white/10 flex flex-col items-center text-center">
+          <p className="text-xs text-gray-400 mb-2">Want to evaluate sample patient records?</p>
           <button
             type="button"
             onClick={() => {
               toggleDemoMode(true);
               onClose();
             }}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-primary/10 text-brand-primary text-xs font-semibold hover:bg-brand-primary/15 transition"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-primary/15 text-brand-primary border border-brand-primary/25 text-xs font-semibold hover:bg-brand-primary/25 transition"
           >
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Load Demo Patient Account (Rahul Krishnan)</span>
@@ -400,23 +400,23 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Forgot Password Modal Overlay */}
         {showForgotPassword && (
-          <div className="absolute inset-0 bg-white rounded-3xl p-6 flex flex-col justify-between z-10 animate-in fade-in duration-150">
+          <div className="absolute inset-0 bg-[#18181d] rounded-3xl p-6 flex flex-col justify-between z-10 animate-in fade-in duration-150 border border-white/10">
             <div>
-              <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-                <h3 className="text-base font-bold text-gray-900">Reset Account Access</h3>
+              <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                <h3 className="text-base font-bold text-white">Reset Account Access</h3>
                 <button
                   onClick={() => setShowForgotPassword(false)}
-                  className="p-1 text-gray-400 hover:text-gray-700"
+                  className="p-1 text-gray-400 hover:text-white"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              <p className="mt-4 text-xs text-gray-600 leading-relaxed">
+              <p className="mt-4 text-xs text-gray-300 leading-relaxed">
                 For patient confidentiality and security, account resets are verified directly with clinic reception.
               </p>
-              <div className="mt-4 p-3 rounded-xl bg-brand-primary/5 border border-brand-primary/15 text-xs text-gray-700 space-y-1.5">
+              <div className="mt-4 p-3 rounded-xl bg-brand-primary/10 border border-brand-primary/20 text-xs text-gray-300 space-y-1.5">
                 <p className="font-semibold text-brand-primary">Clinic Contact for Password Assistance:</p>
-                <p>Phone / WhatsApp: <strong>{CLINIC_INFO.phoneDisplay}</strong></p>
+                <p>Phone / WhatsApp: <strong className="text-white">{CLINIC_INFO.phoneDisplay}</strong></p>
                 <p>Location: Near KIMS Rd, Oruvathilkotta, Anayara</p>
               </div>
             </div>
@@ -426,14 +426,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 href={`https://wa.me/${CLINIC_INFO.whatsappRawNumber}?text=${encodeURIComponent('Hello Functional Rehab Lab, I need assistance resetting my Patient Portal account access.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 rounded-xl bg-brand-primary text-white text-xs font-semibold flex items-center justify-center gap-2 hover:bg-brand-hover transition"
+                className="w-full py-2.5 rounded-xl bg-brand-primary text-white text-xs font-semibold flex items-center justify-center gap-2 hover:bg-brand-hover transition shadow-lg shadow-brand-primary/25"
               >
                 Contact Clinic on WhatsApp
               </a>
               <button
                 type="button"
                 onClick={() => setShowForgotPassword(false)}
-                className="w-full py-2 rounded-xl bg-gray-100 text-gray-700 text-xs font-medium hover:bg-gray-200 transition"
+                className="w-full py-2 rounded-xl bg-[#22222a] text-gray-300 text-xs font-medium hover:text-white hover:bg-white/10 transition border border-white/10"
               >
                 Back to Login
               </button>

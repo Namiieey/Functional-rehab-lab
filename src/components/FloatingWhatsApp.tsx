@@ -11,20 +11,20 @@ export const FloatingWhatsApp: React.FC = () => {
   return (
     <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40 flex flex-col items-end gap-2 pointer-events-auto">
       {showTooltip && (
-        <div className="relative max-w-xs bg-white text-gray-900 px-3.5 py-2.5 rounded-2xl shadow-xl border border-gray-100 text-xs flex items-center gap-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="relative max-w-xs bg-[#18181d] text-white px-3.5 py-2.5 rounded-2xl shadow-2xl border border-white/10 text-xs flex items-center gap-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
           <div className="flex-1">
             <p className="font-bold text-brand-primary">Have a Question?</p>
-            <p className="text-[11px] text-gray-500">Chat with Functional Rehab Lab</p>
+            <p className="text-[11px] text-gray-400">Chat with Functional Rehab Lab</p>
           </div>
           <button
             onClick={() => setShowTooltip(false)}
-            className="p-1 text-gray-400 hover:text-gray-600 rounded-full"
+            className="p-1 text-gray-400 hover:text-white rounded-full"
             aria-label="Dismiss message"
           >
             <X className="w-3.5 h-3.5" />
           </button>
           {/* Subtle speech bubble tail */}
-          <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-white border-r border-b border-gray-100 rotate-45" />
+          <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-[#18181d] border-r border-b border-white/10 rotate-45" />
         </div>
       )}
 
