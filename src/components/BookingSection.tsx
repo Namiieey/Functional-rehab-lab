@@ -150,7 +150,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Left Column: Context & Guidelines */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#0d5c58]/10 text-[#0d5c58] text-xs font-semibold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-primary/10 text-brand-primary text-xs font-semibold uppercase tracking-wider">
               Appointments
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
@@ -161,8 +161,8 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
             </p>
 
             {/* Crucial Disclaimer Mandated by Prompt */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#0d5c58]/5 border border-[#0d5c58]/20 space-y-2">
-              <div className="flex items-center gap-2 text-[#0d5c58] font-bold text-xs">
+            <div className="p-4 sm:p-5 rounded-2xl bg-brand-primary/5 border border-brand-primary/20 space-y-2">
+              <div className="flex items-center gap-2 text-brand-primary font-bold text-xs">
                 <Info className="w-4 h-4 shrink-0" />
                 <span>Important Booking Information:</span>
               </div>
@@ -181,7 +181,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   <span className="text-gray-500">Clinic Phone / WhatsApp:</span>
                   <a
                     href={CLINIC_INFO.telUrl}
-                    className="font-bold text-[#0d5c58] hover:underline"
+                    className="font-bold text-brand-primary hover:underline"
                   >
                     {CLINIC_INFO.phoneDisplay}
                   </a>
@@ -209,7 +209,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                 {onNavigateToDashboard && (
                   <button
                     onClick={onNavigateToDashboard}
-                    className="text-xs font-bold text-[#0d5c58] underline hover:text-[#094643]"
+                    className="text-xs font-bold text-brand-primary underline hover:text-brand-hover"
                   >
                     View in Patient Dashboard &rarr;
                   </button>
@@ -239,7 +239,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                           if (errors.patientName) setErrors({ ...errors, patientName: '' });
                         }}
                         placeholder="e.g. Rahul Krishnan"
-                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-[#0d5c58] focus:ring-2 focus:ring-[#0d5c58]/20 transition"
+                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                       />
                     </div>
                     {errors.patientName && (
@@ -265,7 +265,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                           if (errors.phone) setErrors({ ...errors, phone: '' });
                         }}
                         placeholder="+91 98470 12345"
-                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-[#0d5c58] focus:ring-2 focus:ring-[#0d5c58]/20 transition"
+                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                       />
                     </div>
                     {errors.phone && (
@@ -289,7 +289,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="patient@example.com"
-                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-[#0d5c58] focus:ring-2 focus:ring-[#0d5c58]/20 transition"
+                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                       />
                     </div>
                   </div>
@@ -305,7 +305,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         onClick={() => setPatientType('New Patient')}
                         className={`py-2 px-3 text-xs font-semibold rounded-xl border transition ${
                           patientType === 'New Patient'
-                            ? 'bg-[#0d5c58] text-white border-[#0d5c58]'
+                            ? 'bg-brand-primary text-white border-brand-primary'
                             : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                         }`}
                       >
@@ -316,7 +316,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         onClick={() => setPatientType('Existing Patient')}
                         className={`py-2 px-3 text-xs font-semibold rounded-xl border transition ${
                           patientType === 'Existing Patient'
-                            ? 'bg-[#0d5c58] text-white border-[#0d5c58]'
+                            ? 'bg-brand-primary text-white border-brand-primary'
                             : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                         }`}
                       >
@@ -343,7 +343,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                           setPreferredDate(e.target.value);
                           if (errors.preferredDate) setErrors({ ...errors, preferredDate: '' });
                         }}
-                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-[#0d5c58] focus:ring-2 focus:ring-[#0d5c58]/20 transition"
+                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                       />
                     </div>
                     {errors.preferredDate && (
@@ -363,7 +363,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       <select
                         value={preferredTime}
                         onChange={(e) => setPreferredTime(e.target.value)}
-                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-[#0d5c58] focus:ring-2 focus:ring-[#0d5c58]/20 transition"
+                        className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                       >
                         {timeSlots.map((slot) => (
                           <option key={slot} value={slot}>
@@ -383,7 +383,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   <select
                     value={serviceId}
                     onChange={(e) => setServiceId(e.target.value)}
-                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-[#0d5c58] focus:ring-2 focus:ring-[#0d5c58]/20 transition"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                   >
                     {SERVICES_LIST.map((srv) => (
                       <option key={srv.id} value={srv.id}>
@@ -404,7 +404,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     value={concern}
                     onChange={(e) => setConcern(e.target.value)}
                     placeholder="e.g. Experiencing pain in lower back after lifting, difficulty sitting for longer than 20 minutes..."
-                    className="w-full p-3.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-[#0d5c58] focus:ring-2 focus:ring-[#0d5c58]/20 transition"
+                    className="w-full p-3.5 text-sm rounded-xl border border-gray-200 bg-white focus:outline-hidden focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition"
                   />
                 </div>
 
@@ -418,14 +418,14 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         setConsentChecked(e.target.checked);
                         if (errors.consent) setErrors({ ...errors, consent: '' });
                       }}
-                      className="w-4 h-4 rounded-sm text-[#0d5c58] focus:ring-[#0d5c58] mt-0.5 shrink-0"
+                      className="w-4 h-4 rounded-sm text-brand-primary focus:ring-brand-primary mt-0.5 shrink-0"
                     />
                     <span className="text-xs text-gray-600 leading-relaxed">
                       I understand that clicking "Book via WhatsApp" opens WhatsApp to send an appointment request to Functional Rehab Lab, and my slot is confirmed only after clinic reception verifies therapist availability.{' '}
                       <button
                         type="button"
                         onClick={onOpenPrivacy}
-                        className="text-[#0d5c58] font-semibold hover:underline"
+                        className="text-brand-primary font-semibold hover:underline"
                       >
                         Privacy Policy
                       </button>

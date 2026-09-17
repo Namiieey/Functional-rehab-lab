@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
+import { BrandProvider, useBrand } from './context/BrandContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
@@ -13,8 +14,10 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 import { OfflineIndicator } from './components/OfflineIndicator';
 import { AuthModal } from './components/AuthModal';
 import { PrivacyTermsModal } from './components/PrivacyTermsModal';
+import { BrandCustomizerModal } from './components/BrandCustomizerModal';
 
 export function MainAppContent() {
+  const { isCustomizerOpen, setIsCustomizerOpen } = useBrand();
   const [activeSection, setActiveSection] = useState<string>('home');
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authInitialMode, setAuthInitialMode] = useState<'login' | 'signup'>('login');
@@ -67,7 +70,7 @@ export function MainAppContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col selection:bg-[#0d5c58]/20 selection:text-[#0d5c58]">
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col selection:bg-brand-primary/20 selection:text-brand-primary">
       {/* Offline Alert */}
       <OfflineIndicator />
 
@@ -137,14 +140,22 @@ export function MainAppContent() {
         isOpen={privacyModalOpen}
         onClose={() => setPrivacyModalOpen(false)}
       />
+
+      {/* Brand & Logo Color Customizer Modal */}
+      <BrandCustomizerModal
+        isOpen={isCustomizerOpen}
+        onClose={() => setIsCustomizerOpen(false)}
+      />
     </div>
   );
 }
 
 export default function App() {
   return (
-    <AuthProvider>
-      <MainAppContent />
-    </AuthProvider>
+    <BrandProvider>
+      <AuthProvider>
+        <MainAppContent />
+      </AuthProvider>
+    </BrandProvider>
   );
 }

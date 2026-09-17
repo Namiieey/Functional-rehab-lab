@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Calendar, User, Menu, X, Shield, LogOut, ArrowRight, MessageCircle } from 'lucide-react';
+import { Phone, Calendar, User, Menu, X, Shield, LogOut, ArrowRight, MessageCircle, Palette } from 'lucide-react';
 import { CLINIC_INFO } from '../utils/whatsapp';
 import { useAuth } from '../context/AuthContext';
+import { useBrand } from '../context/BrandContext';
 import { PWAInstallButton } from './PWAInstallButton';
 
 interface NavbarProps {
@@ -12,6 +13,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNavigate }) => {
   const { currentUser, isAuthenticated, isDemoMode, logout } = useAuth();
+  const { colors, currentLogoUrl, setIsCustomizerOpen } = useBrand();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -53,11 +55,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             className="flex items-center gap-3 text-left group focus:outline-hidden"
             aria-label="Functional Rehab Lab - Back to Home"
           >
-            <div className="w-11 h-11 rounded-2xl bg-[#0d5c58] text-white flex items-center justify-center font-extrabold text-base shadow-xs group-hover:bg-[#094643] transition">
-              <span className="tracking-tighter">FRL</span>
+            <div
+              className="w-11 h-11 rounded-2xl flex items-center justify-center p-1.5 shadow-xs border transition group-hover:scale-105 overflow-hidden bg-white"
+              style={{ borderColor: colors.border }}
+            >
+              <img
+                src={currentLogoUrl}
+                alt="Functional Rehab Lab Logo"
+                className="max-h-full max-w-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+              />
             </div>
             <div>
-              <span className="block text-base sm:text-lg font-bold text-gray-900 tracking-tight leading-tight group-hover:text-[#0d5c58] transition">
+              <span className="block text-base sm:text-lg font-bold text-gray-900 tracking-tight leading-tight group-hover:text-brand-primary transition">
                 Functional Rehab Lab
               </span>
               <span className="block text-[11px] font-medium text-gray-500 uppercase tracking-wider">
@@ -76,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                   onClick={() => handleLinkClick(link.id)}
                   className={`px-3 py-2 rounded-xl text-xs font-semibold tracking-wide transition ${
                     isActive
-                      ? 'bg-[#0d5c58]/10 text-[#0d5c58]'
+                      ? 'bg-brand-primary/10 text-brand-primary'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`}
                 >
@@ -88,6 +100,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
 
           {/* Right Desktop Actions */}
           <div className="hidden sm:flex items-center gap-2.5">
+            {/* Brand Logo & Color Switcher */}
+            <button
+              onClick={() => setIsCustomizerOpen(true)}
+              id="navbar-brand-theme-btn"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition hover:opacity-90 active:scale-[0.98]"
+              style={{
+                backgroundColor: colors.light,
+                borderColor: colors.border,
+                color: colors.deep,
+              }}
+              title="Change Clinic Logo & UI Colors"
+            >
+              <span
+                className="w-2.5 h-2.5 rounded-full shadow-inner ring-1 ring-black/10"
+                style={{ backgroundColor: colors.primary }}
+              />
+              <Palette className="w-3.5 h-3.5" style={{ color: colors.primary }} />
+              <span className="hidden xl:inline text-[11px]">Logo & Colors</span>
+            </button>
+
             {/* PWA Install Button */}
             <PWAInstallButton variant="navbar" />
 
@@ -95,12 +127,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             <a
               href={CLINIC_INFO.telUrl}
               id="navbar-call-btn"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-gray-700 hover:text-[#0d5c58] hover:bg-gray-50 transition border border-gray-200 active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700 hover:text-brand-primary hover:bg-gray-50 transition border border-gray-200 active:scale-[0.98]"
               title="Direct Clinic Phone"
             >
-              <Phone className="w-3.5 h-3.5 text-[#0d5c58]" />
+              <Phone className="w-3.5 h-3.5 text-brand-primary" />
               <span className="hidden xl:inline">{CLINIC_INFO.phoneDisplay}</span>
-              <span className="xl:hidden">Call Now</span>
+              <span className="xl:hidden">Call</span>
             </a>
 
             {/* Auth Button or User Badge */}
@@ -111,8 +143,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                   className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 text-gray-800 text-xs font-semibold hover:bg-gray-200 transition"
                   title="Open Patient Dashboard"
                 >
-                  <User className="w-3.5 h-3.5 text-[#0d5c58]" />
-                  <span className="max-w-[110px] truncate">{currentUser.fullName.split(' ')[0]}</span>
+                  <User className="w-3.5 h-3.5 text-brand-primary" />
+                  <span className="max-w-[100px] truncate">{currentUser.fullName.split(' ')[0]}</span>
                   {isDemoMode && (
                     <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full">
                       Demo
@@ -134,8 +166,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                 id="navbar-login-btn"
                 className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition border border-gray-200"
               >
-                <User className="w-3.5 h-3.5 text-[#0d5c58]" />
-                <span>Patient Login</span>
+                <User className="w-3.5 h-3.5 text-brand-primary" />
+                <span>Login</span>
               </button>
             )}
 
@@ -143,21 +175,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             <button
               onClick={() => handleLinkClick('book')}
               id="navbar-book-btn"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0d5c58] text-white text-xs font-bold hover:bg-[#094643] transition shadow-xs active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white text-xs font-bold transition shadow-xs active:scale-[0.98] hover:opacity-95"
+              style={{ backgroundColor: colors.primary }}
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>Book Appointment</span>
             </button>
           </div>
 
-          {/* Mobile Right Controls: Call button + Hamburger Menu */}
+          {/* Mobile Right Controls: Theme + Call + Menu */}
           <div className="flex items-center gap-2 sm:hidden">
+            <button
+              onClick={() => setIsCustomizerOpen(true)}
+              className="p-2 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 transition"
+              title="Logo & Colors"
+              aria-label="Logo & Colors"
+            >
+              <Palette className="w-4 h-4" style={{ color: colors.primary }} />
+            </button>
             <a
               href={CLINIC_INFO.telUrl}
-              className="p-2.5 rounded-xl bg-gray-100 text-gray-800 hover:text-[#0d5c58] transition"
+              className="p-2.5 rounded-xl bg-gray-100 text-gray-800 hover:text-brand-primary transition"
               aria-label="Call Functional Rehab Lab"
             >
-              <Phone className="w-4 h-4 text-[#0d5c58]" />
+              <Phone className="w-4 h-4 text-brand-primary" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -182,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                   onClick={() => handleLinkClick(link.id)}
                   className={`w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-semibold text-left transition ${
                     isActive
-                      ? 'bg-[#0d5c58]/10 text-[#0d5c58]'
+                      ? 'bg-brand-primary/10 text-brand-primary'
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
@@ -194,6 +235,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
           </div>
 
           <div className="pt-3 border-t border-gray-100 space-y-2.5">
+            {/* Brand Color Theme Button in Mobile */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsCustomizerOpen(true);
+              }}
+              className="w-full py-2.5 rounded-xl border border-gray-200 text-gray-800 text-xs font-semibold flex items-center justify-center gap-2 bg-gray-50"
+            >
+              <Palette className="w-4 h-4" style={{ color: colors.primary }} />
+              <span>Change Logo & Brand Palette</span>
+            </button>
+
             {/* Install button in mobile menu */}
             <div className="flex justify-between items-center py-1">
               <span className="text-xs text-gray-500 font-medium">Progressive Web App:</span>
@@ -204,7 +257,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             {isAuthenticated && currentUser ? (
               <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50">
                 <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-[#0d5c58]" />
+                  <User className="w-4 h-4 text-brand-primary" />
                   <div>
                     <p className="text-xs font-bold text-gray-900">{currentUser.fullName}</p>
                     <p className="text-[11px] text-gray-500">{currentUser.phone}</p>
@@ -228,7 +281,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
                 }}
                 className="w-full py-2.5 rounded-xl border border-gray-200 text-gray-800 text-xs font-semibold flex items-center justify-center gap-2"
               >
-                <User className="w-4 h-4 text-[#0d5c58]" />
+                <User className="w-4 h-4 text-brand-primary" />
                 <span>Patient Login / Sign Up</span>
               </button>
             )}
@@ -247,7 +300,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
             {/* Book Appointment on page */}
             <button
               onClick={() => handleLinkClick('book')}
-              className="w-full py-3 rounded-xl bg-[#0d5c58] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs"
+              className="w-full py-3 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs"
+              style={{ backgroundColor: colors.primary }}
             >
               <Calendar className="w-4 h-4" />
               <span>Book Appointment Form</span>
@@ -258,3 +312,4 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, activeSection, onNav
     </header>
   );
 };
+

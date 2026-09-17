@@ -1,6 +1,7 @@
 import React from 'react';
-import { MapPin, Phone, MessageCircle, Navigation, Shield, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, Navigation, Shield, ArrowUp, Palette } from 'lucide-react';
 import { CLINIC_INFO } from '../utils/whatsapp';
+import { useBrand } from '../context/BrandContext';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -8,6 +9,8 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => {
+  const { colors, currentLogoUrl, setIsCustomizerOpen } = useBrand();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -19,8 +22,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
           {/* Col 1: Brand & Clinic Identity */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0d5c58] text-white flex items-center justify-center font-bold text-sm">
-                FRL
+              <div className="w-11 h-11 rounded-2xl bg-white p-1.5 flex items-center justify-center border border-gray-800 shadow-xs overflow-hidden">
+                <img
+                  src={currentLogoUrl}
+                  alt="Functional Rehab Lab Logo"
+                  className="max-h-full max-w-full object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLElement).style.display = 'none';
+                  }}
+                />
               </div>
               <div>
                 <span className="text-base font-bold text-white block">
@@ -36,12 +46,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               Evidence-informed physiotherapy, biomechanical assessment, and structured functional rehabilitation care in Anayara, Thiruvananthapuram.
             </p>
 
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center gap-2.5 pt-2">
               <a
                 href={CLINIC_INFO.telUrl}
                 className="px-3 py-2 rounded-lg bg-gray-900 text-gray-200 hover:text-white border border-gray-800 transition flex items-center gap-1.5"
               >
-                <Phone className="w-3.5 h-3.5 text-teal-400" />
+                <Phone className="w-3.5 h-3.5" style={{ color: colors.accent }} />
                 <span>{CLINIC_INFO.phoneDisplay}</span>
               </a>
 
@@ -54,6 +64,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
               </a>
+
+              <button
+                onClick={() => setIsCustomizerOpen(true)}
+                className="px-3 py-2 rounded-lg bg-gray-900 text-gray-300 hover:text-white border border-gray-800 transition flex items-center gap-1.5"
+                title="Change Brand Theme & Logo"
+              >
+                <Palette className="w-3.5 h-3.5" style={{ color: colors.primary }} />
+                <span>Logo &amp; Colors</span>
+              </button>
             </div>
           </div>
 
@@ -120,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
               Clinic Location
             </h4>
             <div className="flex items-start gap-2.5 text-gray-400 leading-relaxed">
-              <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: colors.accent }} />
               <span>
                 Near KIMS Rd, Oruvathilkotta,<br />
                 Anayara, Thiruvananthapuram,<br />
@@ -133,7 +152,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPrivacy }) => 
                 href={CLINIC_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-teal-400 hover:text-teal-300 font-medium"
+                className="inline-flex items-center gap-1.5 font-medium transition hover:underline"
+                style={{ color: colors.accent }}
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>Open in Google Maps &rarr;</span>

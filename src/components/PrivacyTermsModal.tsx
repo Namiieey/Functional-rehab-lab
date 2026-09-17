@@ -16,7 +16,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({ isOpen, on
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-gray-100 shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-[#0d5c58]/10 text-[#0d5c58] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center">
               <ShieldCheck className="w-4 h-4" />
             </div>
             <div>
@@ -37,7 +37,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({ isOpen, on
         <div className="mt-4 space-y-4 text-xs sm:text-sm text-gray-600 overflow-y-auto pr-1 leading-relaxed">
           <section className="space-y-1.5">
             <h3 className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
-              <Lock className="w-3.5 h-3.5 text-[#0d5c58]" /> 1. Patient Data Confidentiality
+              <Lock className="w-3.5 h-3.5 text-brand-primary" /> 1. Patient Data Confidentiality
             </h3>
             <p>
               Functional Rehab Lab treats all patient evaluations, medical history, clinical notes, and treatment plans as sensitive medical data. We adhere to clinical privacy standards and do not sell, rent, or trade your personal or health information to third-party advertisers.
@@ -46,7 +46,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({ isOpen, on
 
           <section className="space-y-1.5">
             <h3 className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
-              <FileCheck className="w-3.5 h-3.5 text-[#0d5c58]" /> 2. WhatsApp Communication &amp; Appointment Requests
+              <FileCheck className="w-3.5 h-3.5 text-brand-primary" /> 2. WhatsApp Communication &amp; Appointment Requests
             </h3>
             <p>
               Submitting an appointment request generates a structured message transmitted to the clinic's WhatsApp desk at {CLINIC_INFO.phoneDisplay}. An appointment request does not constitute an automatically confirmed reservation until clinic reception verifies therapist schedules and confirms the designated slot.
@@ -79,7 +79,7 @@ export const PrivacyTermsModal: React.FC<PrivacyTermsModalProps> = ({ isOpen, on
         <div className="mt-6 pt-4 border-t border-gray-100 shrink-0 flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2.5 rounded-xl bg-[#0d5c58] text-white font-semibold text-xs hover:bg-[#094643] transition"
+            className="px-5 py-2.5 rounded-xl bg-brand-primary text-white font-semibold text-xs hover:bg-brand-hover transition"
           >
             I Understand &amp; Agree
           </button>

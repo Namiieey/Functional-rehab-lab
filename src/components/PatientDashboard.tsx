@@ -56,7 +56,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
       <section id="dashboard" className="py-16 sm:py-20 bg-[#fafbfc] border-t border-gray-100 scroll-mt-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="rounded-3xl bg-white p-8 sm:p-12 text-center border border-gray-200/80 shadow-xs space-y-6">
-            <div className="w-16 h-16 rounded-2xl bg-[#0d5c58]/10 text-[#0d5c58] flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mx-auto">
               <Shield className="w-8 h-8" />
             </div>
             <div className="max-w-md mx-auto space-y-2">
@@ -70,7 +70,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <button
                 onClick={() => onOpenAuth('login')}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0d5c58] text-white font-bold text-sm hover:bg-[#094643] transition shadow-xs"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-primary text-white font-bold text-sm hover:bg-brand-hover transition shadow-xs"
               >
                 Sign In to Patient Portal
               </button>
@@ -85,9 +85,9 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
             <div className="pt-6 border-t border-gray-100 flex items-center justify-center">
               <button
                 onClick={() => toggleDemoMode(true)}
-                className="inline-flex items-center gap-2 text-xs font-semibold text-[#0d5c58] hover:underline"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-brand-primary hover:underline"
               >
-                <Sparkles className="w-4 h-4 text-[#0d5c58]" />
+                <Sparkles className="w-4 h-4 text-brand-primary" />
                 <span>Or explore Demo Patient Mode (Sample records)</span>
               </button>
             </div>
@@ -171,12 +171,12 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
               className="px-3 py-2 text-xs font-semibold rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 transition"
               title="Toggle between real blank account and sample demo data"
             >
-              <RefreshCw className="w-3.5 h-3.5 inline mr-1 text-[#0d5c58]" />
+              <RefreshCw className="w-3.5 h-3.5 inline mr-1 text-brand-primary" />
               <span>{isDemoMode ? 'Exit Demo Mode' : 'View Sample Records'}</span>
             </button>
             <button
               onClick={onNavigateToBook}
-              className="px-4 py-2 bg-[#0d5c58] text-white text-xs font-bold rounded-xl hover:bg-[#094643] transition flex items-center gap-1.5 shadow-2xs"
+              className="px-4 py-2 bg-brand-primary text-white text-xs font-bold rounded-xl hover:bg-brand-hover transition flex items-center gap-1.5 shadow-2xs"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>New Request</span>
@@ -190,7 +190,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
             onClick={() => setActiveTab('appointments')}
             className={`flex items-center gap-2 px-4 py-3 text-xs font-bold border-b-2 whitespace-nowrap transition ${
               activeTab === 'appointments'
-                ? 'border-[#0d5c58] text-[#0d5c58]'
+                ? 'border-brand-primary text-brand-primary'
                 : 'border-transparent text-gray-500 hover:text-gray-900'
             }`}
           >
@@ -202,7 +202,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
             onClick={() => setActiveTab('treatment')}
             className={`flex items-center gap-2 px-4 py-3 text-xs font-bold border-b-2 whitespace-nowrap transition ${
               activeTab === 'treatment'
-                ? 'border-[#0d5c58] text-[#0d5c58]'
+                ? 'border-brand-primary text-brand-primary'
                 : 'border-transparent text-gray-500 hover:text-gray-900'
             }`}
           >
@@ -214,7 +214,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
             onClick={() => setActiveTab('sessions')}
             className={`flex items-center gap-2 px-4 py-3 text-xs font-bold border-b-2 whitespace-nowrap transition ${
               activeTab === 'sessions'
-                ? 'border-[#0d5c58] text-[#0d5c58]'
+                ? 'border-brand-primary text-brand-primary'
                 : 'border-transparent text-gray-500 hover:text-gray-900'
             }`}
           >
@@ -226,7 +226,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
             onClick={() => setActiveTab('reminders')}
             className={`flex items-center gap-2 px-4 py-3 text-xs font-bold border-b-2 whitespace-nowrap transition ${
               activeTab === 'reminders'
-                ? 'border-[#0d5c58] text-[#0d5c58]'
+                ? 'border-brand-primary text-brand-primary'
                 : 'border-transparent text-gray-500 hover:text-gray-900'
             }`}
           >
@@ -238,7 +238,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
             onClick={() => setActiveTab('profile')}
             className={`flex items-center gap-2 px-4 py-3 text-xs font-bold border-b-2 whitespace-nowrap transition ${
               activeTab === 'profile'
-                ? 'border-[#0d5c58] text-[#0d5c58]'
+                ? 'border-brand-primary text-brand-primary'
                 : 'border-transparent text-gray-500 hover:text-gray-900'
             }`}
           >
@@ -263,7 +263,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                 </div>
                 <button
                   onClick={onNavigateToBook}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0d5c58] text-white text-xs font-bold hover:bg-[#094643] transition"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-primary text-white text-xs font-bold hover:bg-brand-hover transition"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Request an Appointment via WhatsApp</span>
@@ -274,7 +274,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                 {appointments.map((apt) => (
                   <div
                     key={apt.id}
-                    className="rounded-2xl bg-white p-5 border border-gray-200/80 shadow-2xs space-y-4 hover:border-[#0d5c58]/30 transition"
+                    className="rounded-2xl bg-white p-5 border border-gray-200/80 shadow-2xs space-y-4 hover:border-brand-primary/30 transition"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div>
@@ -291,11 +291,11 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
 
                     <div className="grid grid-cols-2 gap-2 p-3 rounded-xl bg-[#fafbfc] text-xs">
                       <div className="flex items-center gap-2 text-gray-700">
-                        <Calendar className="w-3.5 h-3.5 text-[#0d5c58]" />
+                        <Calendar className="w-3.5 h-3.5 text-brand-primary" />
                         <span className="font-semibold">{apt.preferredDate}</span>
                       </div>
                       <div className="flex items-center gap-2 text-gray-700">
-                        <Clock className="w-3.5 h-3.5 text-[#0d5c58]" />
+                        <Clock className="w-3.5 h-3.5 text-brand-primary" />
                         <span className="font-semibold">{apt.preferredTime}</span>
                       </div>
                     </div>
@@ -351,7 +351,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-[#0d5c58]/10 text-[#0d5c58] flex items-center justify-center font-bold text-xs">
+                        <div className="w-9 h-9 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold text-xs">
                           <CheckCircle2 className="w-4 h-4" />
                         </div>
                         <div>
@@ -407,20 +407,20 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-100 pb-4">
                       <div>
-                        <span className="text-xs font-semibold text-[#0d5c58] uppercase tracking-wider">
+                        <span className="text-xs font-semibold text-brand-primary uppercase tracking-wider">
                           Rehabilitation Plan
                         </span>
                         <h3 className="text-xl font-bold text-gray-950 mt-1">{plan.title}</h3>
                         <p className="text-xs text-gray-500 mt-0.5">Initiated: {plan.startDate}</p>
                       </div>
-                      <span className="self-start sm:self-center px-3 py-1 text-xs font-bold rounded-full bg-teal-100 text-[#0d5c58]">
+                      <span className="self-start sm:self-center px-3 py-1 text-xs font-bold rounded-full bg-teal-100 text-brand-primary">
                         {plan.status}
                       </span>
                     </div>
 
                     {/* Target Goal */}
-                    <div className="p-4 rounded-2xl bg-[#0d5c58]/5 border border-[#0d5c58]/15 space-y-1">
-                      <span className="text-xs font-bold text-[#0d5c58] uppercase tracking-wider block">
+                    <div className="p-4 rounded-2xl bg-brand-primary/5 border border-brand-primary/15 space-y-1">
+                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider block">
                         Target Clinical Goal:
                       </span>
                       <p className="text-sm text-gray-800 font-medium leading-relaxed">
@@ -433,11 +433,11 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                       <div className="space-y-2">
                         <div className="flex justify-between text-xs font-semibold">
                           <span className="text-gray-700">Protocol Milestone Progress:</span>
-                          <span className="text-[#0d5c58]">{plan.progressPercent}% Completed</span>
+                          <span className="text-brand-primary">{plan.progressPercent}% Completed</span>
                         </div>
                         <div className="h-2.5 w-full bg-gray-100 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-[#0d5c58] rounded-full transition-all duration-500"
+                            className="h-full bg-brand-primary rounded-full transition-all duration-500"
                             style={{ width: `${plan.progressPercent}%` }}
                           />
                         </div>
@@ -452,7 +452,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                       <ul className="space-y-2">
                         {plan.therapistInstructions.map((instruction, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#0d5c58] mt-1.5 shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-1.5 shrink-0" />
                             <span>{instruction}</span>
                           </li>
                         ))}
@@ -473,7 +473,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                             >
                               <p className="font-bold text-gray-900">{ex.name}</p>
                               <p className="text-gray-600">Reps: <span className="font-medium text-gray-800">{ex.reps}</span></p>
-                              <p className="text-gray-600">Frequency: <span className="font-medium text-[#0d5c58]">{ex.frequency}</span></p>
+                              <p className="text-gray-600">Frequency: <span className="font-medium text-brand-primary">{ex.frequency}</span></p>
                             </div>
                           ))}
                         </div>
@@ -509,7 +509,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
 
             {/* Channels toggles */}
             <div className="space-y-4 pt-2">
-              <label className="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:border-[#0d5c58]/30 transition cursor-pointer">
+              <label className="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:border-brand-primary/30 transition cursor-pointer">
                 <div>
                   <span className="text-sm font-bold text-gray-900 block">WhatsApp Reminders</span>
                   <span className="text-xs text-gray-500">Receive interactive reminder to +91 80885 96486</span>
@@ -518,11 +518,11 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                   type="checkbox"
                   checked={currentUser.reminderPreferences.whatsapp}
                   onChange={(e) => updateReminderPreferences({ whatsapp: e.target.checked })}
-                  className="w-5 h-5 rounded-md text-[#0d5c58] focus:ring-[#0d5c58]"
+                  className="w-5 h-5 rounded-md text-brand-primary focus:ring-brand-primary"
                 />
               </label>
 
-              <label className="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:border-[#0d5c58]/30 transition cursor-pointer">
+              <label className="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:border-brand-primary/30 transition cursor-pointer">
                 <div>
                   <span className="text-sm font-bold text-gray-900 block">SMS Notifications</span>
                   <span className="text-xs text-gray-500">Standard text message delivery</span>
@@ -531,11 +531,11 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                   type="checkbox"
                   checked={currentUser.reminderPreferences.sms}
                   onChange={(e) => updateReminderPreferences({ sms: e.target.checked })}
-                  className="w-5 h-5 rounded-md text-[#0d5c58] focus:ring-[#0d5c58]"
+                  className="w-5 h-5 rounded-md text-brand-primary focus:ring-brand-primary"
                 />
               </label>
 
-              <label className="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:border-[#0d5c58]/30 transition cursor-pointer">
+              <label className="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:border-brand-primary/30 transition cursor-pointer">
                 <div>
                   <span className="text-sm font-bold text-gray-900 block">Email Reminders</span>
                   <span className="text-xs text-gray-500">Sent to {currentUser.email}</span>
@@ -544,7 +544,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                   type="checkbox"
                   checked={currentUser.reminderPreferences.email}
                   onChange={(e) => updateReminderPreferences({ email: e.target.checked })}
-                  className="w-5 h-5 rounded-md text-[#0d5c58] focus:ring-[#0d5c58]"
+                  className="w-5 h-5 rounded-md text-brand-primary focus:ring-brand-primary"
                 />
               </label>
             </div>
@@ -560,7 +560,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                   onClick={() => updateReminderPreferences({ timing: '24-hour' })}
                   className={`py-2.5 px-4 text-xs font-semibold rounded-xl border transition ${
                     currentUser.reminderPreferences.timing === '24-hour'
-                      ? 'bg-[#0d5c58] text-white border-[#0d5c58]'
+                      ? 'bg-brand-primary text-white border-brand-primary'
                       : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
@@ -571,7 +571,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                   onClick={() => updateReminderPreferences({ timing: 'Same-day' })}
                   className={`py-2.5 px-4 text-xs font-semibold rounded-xl border transition ${
                     currentUser.reminderPreferences.timing === 'Same-day'
-                      ? 'bg-[#0d5c58] text-white border-[#0d5c58]'
+                      ? 'bg-brand-primary text-white border-brand-primary'
                       : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
@@ -625,7 +625,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                     required
                     value={editName}
                     onChange={(e) => setEditName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-[#0d5c58]"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-brand-primary"
                   />
                 </div>
 
@@ -638,14 +638,14 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                     required
                     value={editPhone}
                     onChange={(e) => setEditPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-[#0d5c58]"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-200 focus:outline-hidden focus:border-brand-primary"
                   />
                 </div>
 
                 <div className="flex items-center gap-2 pt-2">
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#0d5c58] text-white text-xs font-bold rounded-xl hover:bg-[#094643] transition"
+                    className="px-4 py-2 bg-brand-primary text-white text-xs font-bold rounded-xl hover:bg-brand-hover transition"
                   >
                     Save Changes
                   </button>
@@ -682,8 +682,8 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#0d5c58]/5 border border-[#0d5c58]/15 text-xs text-gray-700">
-                  <p className="font-semibold text-[#0d5c58] mb-1">Clinic Verification Note:</p>
+                <div className="p-4 rounded-2xl bg-brand-primary/5 border border-brand-primary/15 text-xs text-gray-700">
+                  <p className="font-semibold text-brand-primary mb-1">Clinic Verification Note:</p>
                   <p>
                     All health records are tied to your primary registered phone number. For any record amendments or physical paper summary requests, contact reception at {CLINIC_INFO.phoneDisplay}.
                   </p>

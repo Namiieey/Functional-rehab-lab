@@ -18,9 +18,9 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onNavigate, on
         <a
           href={CLINIC_INFO.telUrl}
           id="mobile-bottom-call"
-          className="flex flex-col items-center justify-center py-1 rounded-xl text-gray-700 hover:text-[#0d5c58] active:bg-gray-100 transition"
+          className="flex flex-col items-center justify-center py-1 rounded-xl text-gray-700 hover:text-brand-primary active:bg-gray-100 transition"
         >
-          <Phone className="w-5 h-5 text-[#0d5c58]" />
+          <Phone className="w-5 h-5 text-brand-primary" />
           <span className="text-[10px] font-semibold mt-0.5">Call</span>
         </a>
 
@@ -40,7 +40,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onNavigate, on
         <button
           onClick={() => onNavigate('book')}
           id="mobile-bottom-book"
-          className="flex flex-col items-center justify-center py-1 rounded-xl bg-[#0d5c58] text-white shadow-xs active:scale-95 transition"
+          className="flex flex-col items-center justify-center py-1 rounded-xl bg-brand-primary text-white shadow-xs active:scale-95 transition"
         >
           <Calendar className="w-5 h-5" />
           <span className="text-[10px] font-bold mt-0.5">Book</span>
@@ -50,9 +50,9 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onNavigate, on
         <button
           onClick={() => (isAuthenticated ? onNavigate('dashboard') : onOpenAuth('login'))}
           id="mobile-bottom-portal"
-          className="flex flex-col items-center justify-center py-1 rounded-xl text-gray-700 hover:text-[#0d5c58] active:bg-gray-100 transition"
+          className="flex flex-col items-center justify-center py-1 rounded-xl text-gray-700 hover:text-brand-primary active:bg-gray-100 transition"
         >
-          <User className="w-5 h-5 text-[#0d5c58]" />
+          <User className="w-5 h-5 text-brand-primary" />
           <span className="text-[10px] font-semibold mt-0.5">Portal</span>
         </button>
       </div>

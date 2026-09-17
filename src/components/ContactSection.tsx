@@ -12,7 +12,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#0d5c58]/10 text-[#0d5c58] text-xs font-semibold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-primary/10 text-brand-primary text-xs font-semibold uppercase tracking-wider mb-3">
             Clinic Contact &amp; Location
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
@@ -29,7 +29,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
             {/* Address Card */}
             <div className="p-6 rounded-3xl bg-[#fafbfc] border border-gray-200/80 shadow-2xs space-y-4">
               <div className="flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-[#0d5c58]/10 text-[#0d5c58] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="space-y-1">
@@ -49,7 +49,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
                   target="_blank"
                   rel="noopener noreferrer"
                   id="contact-directions-btn"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0d5c58] text-white text-xs font-bold hover:bg-[#094643] transition shadow-2xs"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-primary text-white text-xs font-bold hover:bg-brand-hover transition shadow-2xs"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Open Google Maps</span>
@@ -61,7 +61,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
             {/* Direct Telephone & WhatsApp Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-5 rounded-2xl bg-[#fafbfc] border border-gray-200/80 shadow-2xs space-y-2.5">
-                <div className="w-9 h-9 rounded-xl bg-[#0d5c58]/10 text-[#0d5c58] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
@@ -69,7 +69,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
                   <a
                     href={CLINIC_INFO.telUrl}
                     id="contact-call-btn"
-                    className="text-sm font-bold text-gray-900 hover:text-[#0d5c58] transition block mt-0.5"
+                    className="text-sm font-bold text-gray-900 hover:text-brand-primary transition block mt-0.5"
                   >
                     {CLINIC_INFO.phoneDisplay}
                   </a>
@@ -96,8 +96,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
             </div>
 
             {/* Hours & Scheduling Protocol */}
-            <div className="p-5 rounded-2xl bg-[#f0f9f8] border border-[#0d5c58]/20 space-y-2">
-              <div className="flex items-center gap-2 text-[#0d5c58] font-bold text-xs">
+            <div className="p-5 rounded-2xl bg-brand-light border border-brand-primary/20 space-y-2">
+              <div className="flex items-center gap-2 text-brand-primary font-bold text-xs">
                 <Clock className="w-4 h-4 shrink-0" />
                 <span>Operating Guidelines &amp; Hours:</span>
               </div>
@@ -107,7 +107,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
               <div className="pt-2">
                 <button
                   onClick={onNavigateToBook}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#0d5c58] hover:underline"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-brand-primary hover:underline"
                 >
                   <Calendar className="w-3.5 h-3.5" />
                   <span>Reserve an appointment slot &rarr;</span>
@@ -131,7 +131,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
                   href={CLINIC_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-bold text-[#0d5c58] hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-brand-primary hover:underline flex items-center gap-1"
                 >
                   <span>Open Full Map</span>
                   <ExternalLink className="w-3 h-3" />
@@ -162,7 +162,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigateToBook
                     href={CLINIC_INFO.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1.5 rounded-lg bg-[#0d5c58] text-white text-[11px] font-bold shrink-0 hover:bg-[#094643] transition"
+                    className="px-3 py-1.5 rounded-lg bg-brand-primary text-white text-[11px] font-bold shrink-0 hover:bg-brand-hover transition"
                   >
                     Directions
                   </a>
