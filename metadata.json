@@ -1,0 +1,7 @@
+{
+  "name": "Functional Rehab Lab",
+  "description": "Functional Rehab Lab provides physiotherapy and rehabilitation services in Anayara, Thiruvananthapuram. Contact the clinic or request an appointment through WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
